@@ -42,17 +42,16 @@ async function handleIncomingMessage(message: Message) {
 			return;
 		}
 	}
-
 	// If default deny is enabled
 	if (config.defaultDeny) {
 		// If sender is in blocklist ignore
-		if (config.blockList.includes(message.from)) {
+		if (config.allowList.includes(message.from)) {
 			cli.print("Ignoring message from: " + message.from);
 			return;
 		}
 	} else {
 		// If sender is not on allowlist ignore
-		if (!config.allowList.includes(message.from)) {
+		if (config.blockList.includes(message.from)) {
 			cli.print("Ignoring message from: " + message.from);
 			return;
 		}

@@ -47,7 +47,7 @@ interface IConfig {
 
 	// Allowlist & blocklist
 	allowList: string[];
-	//blockList: string[];
+	blockList: string[];
 	defaultDeny: boolean;
 	transcriptionLanguage: string;
 
@@ -94,8 +94,8 @@ const config: IConfig = {
 
 	//Allowlist & Blocklist
 	allowList: process.env.ALLOW_LIST?.split(",") || [],
-	//blockList: process.env.BLOCK_LIST?.split(",") || [],
-	defaultDeny: getEnvBooleanWithDefault("DEFAULT_DENY", false)
+	blockList: process.env.BLOCK_LIST?.split(",") || [],
+	defaultDeny: getEnvBooleanWithDefault("DEFAULT_DENY", false),
 	transcriptionLanguage: process.env.TRANSCRIPTION_LANGUAGE || "" // Default: null
 };
 
